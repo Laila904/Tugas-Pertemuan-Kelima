@@ -1,12 +1,19 @@
 Aplikasi CRUD Data Pesanan Dengan Menggunakan Java Swing dan PostgreSQL
 
 Deskripsi Tugas Pertemuan Kelima
-Pada tugas Pemrograman Berbasis Objek (PBO) pertemuan 5, yaitu mengimplementasikan Aplikasi CRUD Data Menu cafe Menggunakan Java Swing dan PostgreSQL, dengan database PESANAN. Tugas ini untuk mengembangkan sebuah Aplikasi Pengelolaan Data Pesanan menggunakan bahasa pemrograman Java yang terhubung dengan database PostgreSQL. Aplikasi ini memiliki antarmuka berbasis GUI (Graphical User Interface) yang dibangun menggunakan Java Swing dan mendukung operasi CRUD (Create, Read, Update, Delete) untuk data petugas.
+Pada tugas Pemrograman Berbasis Objek (PBO) pertemuan 5, yaitu mengimplementasikan Aplikasi CRUD Data Menu cafe Menggunakan Java Swing dan PostgreSQL,
+dengan database PESANAN. Tugas ini untuk mengembangkan sebuah Aplikasi Pengelolaan Data Pesanan menggunakan bahasa pemrograman Java yang terhubung dengan database PostgreSQL.
+Aplikasi ini memiliki antarmuka berbasis GUI (Graphical User Interface) yang dibangun menggunakan Java Swing dan mendukung operasi CRUD (Create, Read, Update, Delete)
+untuk data petugas.
+
 Koneksi Database
-Dalam tahap koneksi database pastikan sudah menyiapkan database dan membuat tabel petugas dengan struktur yang sesuai, seperti kolom id_pesanan, Menu, harga, dan qty. Aplikasi ini terhubung ke database menggunakan JDBC, dengan library PostgreSQL yang diperlukan untuk mengelola operasi CRUD (Create, Read, Update, Delete) pada data petugas. Kemudian, perlu memastikan bahwa koneksi ke database berhasil, lalu melanjutkan untuk mengimplementasikan fitur-fitur CRUD dengan antarmuka berbasis Java Swing.
+Dalam tahap koneksi database pastikan sudah menyiapkan database dan membuat tabel petugas dengan struktur yang sesuai, seperti kolom id_pesanan, Menu, harga, dan qty.
+Aplikasi ini terhubung ke database menggunakan JDBC, dengan library PostgreSQL yang diperlukan untuk mengelola operasi CRUD (Create, Read, Update, Delete) pada data petugas.
+Kemudian, perlu memastikan bahwa koneksi ke database berhasil, lalu melanjutkan untuk mengimplementasikan fitur-fitur CRUD dengan antarmuka berbasis Java Swing.
 
 Fungsi btnInsertActionPerformed
-Fungsi btnInsert ini berfungsi untuk memasukan data baru ke tabel Pesanan di database. Data yang dimasukan terdiri dari id_pesanan, menu, harga, qty. Ketika data sudah berhasil di insert maka koneksi akan di-commit dan ditutup. Berikut tampilan source code yang saya buat : 
+Fungsi btnInsert ini berfungsi untuk memasukan data baru ke tabel Pesanan di database. Data yang dimasukan terdiri dari id_pesanan, menu, harga, qty.
+Ketika data sudah berhasil di insert maka koneksi akan di-commit dan ditutup. Berikut tampilan source code yang saya buat : 
 private void jBInsertActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
@@ -52,7 +59,15 @@ private void jBInsertActionPerformed(java.awt.event.ActionEvent evt) {
         showTable();
     }
 
-Fungsi dari kode diatas yaitu menangani aksi ketika tombol “insert” (atau “tambah”) ditekan oleh pengguna. Tujuannya yaitu untuk mengambil data dari field input, memvalidasi, dan menyimpannya ke dalam database postgreSQL. Pertama yaitu memeriksa apakah ada field yang kosong ketika field tidak terisi maka akan muncul perintah yang menunjukan bahwa data harus terisi. dimana , setiap field diperiksa satu persatu. dan , jika ada yang kosong maka proses akan berhenti disini dan tidak akan menyimpan data ke database. Jika, field sudah terisi, kode akan mencoba untuk membuat driver JDBC yang diperlukan untuk berkomunikasi dengan database.menggunakan DriverManager.getConnection(), kode akan membuat koneksi ke database dengan parameter koneksi, user, dan password. Selanjutnya, Kode menyiapkan pernyataan SQL insert untuk menambahkan data ke tabel pesanan. Nilai dari masing-masing field input diambil dan disisipkan dalam variabel : id_pesanan, Menu_makanan, Harga, dan Qty. Lalu, data akan dimasukan ke dalam pernyataan SQL menggunakan pstmt.setInt() untuk id_pesanan dan pstmt.setString() untuk yang lainnya. Dengan memanggil pstmt.executeUpdate(), kode menjalankan pernyataan SQL yang telah disiapkan. Setelah itu, conn.commit() digunakan untuk menyimpan perubahan ke database. Jika tidak ada kesalahan, data akan ditambahkan ke tabel Pesanan. Jika semua proses berhasil, maka akan muncul pemberitahuan bahwa data berhasil dimasukan. Namun, jika terjadi kesalahan saat data diproses entah itu kesalahan koneksi atau kesalahan SQL. maka, akan muncul pemberitahuan yang menunjukan pesan kesalahan. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
+Fungsi dari kode diatas yaitu menangani aksi ketika tombol “insert” (atau “tambah”) ditekan oleh pengguna. Tujuannya yaitu untuk mengambil data dari field input, memvalidasi,
+dan menyimpannya ke dalam database postgreSQL. Pertama yaitu memeriksa apakah ada field yang kosong ketika field tidak terisi maka akan muncul perintah
+yang menunjukan bahwa data harus terisi. dimana , setiap field diperiksa satu persatu. dan , jika ada yang kosong maka proses akan berhenti disini dan tidak akan menyimpan data
+ke database. Jika, field sudah terisi, kode akan mencoba untuk membuat driver JDBC yang diperlukan untuk berkomunikasi dengan database.menggunakan DriverManager.
+getConnection(), kode akan membuat koneksi ke database dengan parameter koneksi, user, dan password. Selanjutnya, Kode menyiapkan pernyataan SQL insert 
+untuk menambahkan data ke tabel pesanan. Nilai dari masing-masing field input diambil dan disisipkan dalam variabel : id_pesanan, Menu_makanan, Harga, dan Qty.
+Lalu, data akan dimasukan ke dalam pernyataan SQL menggunakan pstmt.setInt() untuk id_pesanan dan pstmt.setString() untuk yang lainnya. Dengan memanggil pstmt.executeUpdate(),
+kode menjalankan pernyataan SQL yang telah disiapkan. Setelah itu, conn.commit() digunakan untuk menyimpan perubahan ke database. Jika tidak ada kesalahan, data akan ditambahkan ke tabel Pesanan. Jika semua proses berhasil, maka akan muncul pemberitahuan bahwa data berhasil dimasukan. Namun, jika terjadi kesalahan saat data diproses entah itu kesalahan koneksi atau kesalahan SQL. maka, akan muncul pemberitahuan yang menunjukan pesan kesalahan. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
+
 Fungsi btnUpdateActionPerformed
 private void jBUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -111,7 +126,11 @@ private void jBUpdateActionPerformed(java.awt.event.ActionEvent evt) {
     }                                        
 
 
-	Fungsi metode ini yaitu untuk menangani aksi tombol “Update” (atau “ Perbarui”) saat ditekan. Yang bertujuan untuk mengambil data dari field input,memvalidasi, dan memperbarui data yang sesuai di database.Pertama yaitu mendeklarasikan untuk menyimpan nilai dari field id_pesanan, Menu_makanan, Harga, dan Qty. lalu, kode akan memeriksa field input tersebut terisi. Jika salah satu field ada yang kosong maka akan muncul pemberitahuan menggunakan JOptionPane, yang memberitahu bahwa data harus terisi. Jika, field sudah terisi makan akan lanjut ke proses berikutnya. Setelah validasi, kode akan mencoba untuk membuat driver JDBC yang diperbarui koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Kode menyiapkan SQL UPDATE untuk memperbarui data di dalam data pesanan.Dengan memanggil pstmt.executeUpdate(), pernyataan SQL dieksekusi untuk melakukan pembaruan. Jumlah baris yang terpengaruh oleh pernyataan SQL disimpan dalam variabel rowsAffected. Jika rowsAffected lebih besar dari 0, artinya pembaruan berhasil, dan dialog keberhasilan ditampilkan. Jika ada kesalahan konversi (misalnya, saat memparsing angka), dialog dengan pesan kesalahan akan ditampilkan. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
+	Fungsi metode ini yaitu untuk menangani aksi tombol “Update” (atau “ Perbarui”) saat ditekan. Yang bertujuan untuk mengambil data dari field input,memvalidasi,
+ dan memperbarui data yang sesuai di database.Pertama yaitu mendeklarasikan untuk menyimpan nilai dari field id_pesanan, Menu_makanan, Harga, dan Qty. lalu,
+ kode akan memeriksa field input tersebut terisi. Jika salah satu field ada yang kosong maka akan muncul pemberitahuan menggunakan JOptionPane, yang memberitahu bahwa data harus terisi. Jika, field sudah terisi makan akan lanjut ke proses berikutnya. Setelah validasi, kode akan mencoba untuk membuat driver JDBC yang diperbarui koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Kode menyiapkan SQL UPDATE untuk memperbarui data di dalam data pesanan.
+ Dengan memanggil pstmt.executeUpdate(), pernyataan SQL dieksekusi untuk melakukan pembaruan. Jumlah baris yang terpengaruh oleh pernyataan SQL disimpan dalam variabel rowsAffected. Jika rowsAffected lebih besar dari 0, artinya pembaruan berhasil, dan dialog keberhasilan ditampilkan. Jika ada kesalahan konversi (misalnya, saat memparsing angka), 
+ dialog dengan pesan kesalahan akan ditampilkan. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
 
 Fungsi btnDeleteActionPerformed
 
@@ -163,11 +182,18 @@ private void jBDeleteActionPerformed(java.awt.event.ActionEvent evt) {
 
     }                                        
 
-Fungsi metode ini yaitu untuk menangani aksi tombol “Delete” (atau “ Hapus”) saat ditekan. Tujuannya yaitu untuk menghapus data pesanan yang sesuai dari tabel pesanan di database jika telah mendapatkan konfirmasi dari pengguna. Pertama yaitu pada variabel id_pesanan dideklarasikan dan diisi dengan nilai dari field input txtId, yang merupakan dari id_pesanan yang akan dihapus. Di dalam blok try, kode pertama-tama mencoba untuk memuat driver JDBC. Kemudian, koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Lalu, kode akan meminta konfirmasi dari pengguna sebelum menghapus data. Jika sudah ada komfirmasi dari pengguna maka akan ada pesan pemberitahuan “silakan konfirmasi?”. JOptionPane.showConfirmDialog() mengembalikan nilai yang menunjukkan pilihan pengguna (Ya atau Tidak). Jika memilih “ya” maka kode akan menyiapkan pernyataan SQL DELETE untuk menghapus data dari tabel pesanan berdasarkan id_pesanan. pstmt.setString(1, id_pesanan) digunakan untuk menetapkan ID pesanan yang akan dihapus. pstmt.executeUpdate() menjalankan pernyataan SQL untuk menghapus data. Dan jika memilih “Tidak” (JOptionPane.NO_OPTION), maka akan muncul dialog yang memberi tahu bahwa mereka memilih untuk tidak menghapus data. Jika ada kesalahan dari kelas atau dari SQL. maka, akan muncul pemberitahuan kesalahan dan stack trace dari pengecualian dicetak ke konsol. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
+Fungsi metode ini yaitu untuk menangani aksi tombol “Delete” (atau “ Hapus”) saat ditekan. Tujuannya yaitu untuk menghapus data pesanan yang sesuai dari tabel pesanan
+di database jika telah mendapatkan konfirmasi dari pengguna. Pertama yaitu pada variabel id_pesanan dideklarasikan dan diisi dengan nilai dari field input txtId, 
+yang merupakan dari id_pesanan yang akan dihapus. Di dalam blok try, kode pertama-tama mencoba untuk memuat driver JDBC. Kemudian, koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Lalu, kode akan meminta konfirmasi dari pengguna sebelum menghapus data.
+Jika sudah ada komfirmasi dari pengguna maka akan ada pesan pemberitahuan “silakan konfirmasi?”. JOptionPane.showConfirmDialog() mengembalikan nilai yang menunjukkan 
+pilihan pengguna (Ya atau Tidak). Jika memilih “ya” maka kode akan menyiapkan pernyataan SQL DELETE untuk menghapus data dari tabel pesanan berdasarkan id_pesanan. 
+pstmt.setString(1, id_pesanan) digunakan untuk menetapkan ID pesanan yang akan dihapus. pstmt.executeUpdate() menjalankan pernyataan SQL untuk menghapus data. 
+Dan jika memilih “Tidak” (JOptionPane.NO_OPTION), maka akan muncul dialog yang memberi tahu bahwa mereka memilih untuk tidak menghapus data. 
+Jika ada kesalahan dari kelas atau dari SQL. maka, akan muncul pemberitahuan kesalahan dan stack trace dari pengecualian dicetak ke konsol. 
+Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
 Fungsi showTable
-Berfungsi showTable yaitu  untuk menampilkan data dari tabel Pesanan di dalam aplikasi Java, biasanya dalam bentuk tabel GUI. Berikut tampilan source code yang saya buat : 
-
-
+Berfungsi showTable yaitu  untuk menampilkan data dari tabel Pesanan di dalam aplikasi Java, biasanya dalam bentuk tabel GUI. 
+Berikut tampilan source code yang saya buat : 
 public void showTable() {
         try {
             // TODO code application logi
@@ -193,11 +219,12 @@ public void showTable() {
         }
     }
 
-Fungsi dari metode di atas yaitu bertanggung jawab untuk menampilkan data dari tabel pesanan dalam bentuk GUI (Graphical User Interface).
+Fungsi dari metode di atas yaitu bertanggung jawab untuk menampilkan data dari tabel pesanan dalam bentuk
+GUI (Graphical User Interface).
 
 Fungsi TabelPesananAncestorAdded
-
-Fungsi TabelPesananAncestorAdded yaitu bagian dari event handling dalam aplikasi GUI java (kemungkinan menggunakan swing) yang dijalankan ketika komponen tabelpesanan ditambahkan ke dalam hierarki tampilan. Berikut tampilan source code yang saya buat : 
+Fungsi TabelPesananAncestorAdded yaitu bagian dari event handling dalam aplikasi GUI java (kemungkinan menggunakan swing) 
+yang dijalankan ketika komponen tabelpesanan ditambahkan ke dalam hierarki tampilan. Berikut tampilan source code yang saya buat : 
 
 private void TabelPesananAncestorAdded(javax.swing.event.AncestorEvent evt) {                                           
         // TODO add your handling code here:
@@ -212,10 +239,11 @@ private void TabelPesananAncestorAdded(javax.swing.event.AncestorEvent evt) {
 
 Fungsi UtilsDb Class
 
-	Kelas DbUtils ini digunakan untuk mengkonversi data dari ResultSet menjadi model tabel (TableModel) yang dapat ditampilkan pada komponen tabel di Java Swing. Metode resultSetToTableModel mengambil metadata kolom dari ResultSet, mendapatkan nama-nama kolom, dan mengisi baris-baris tabel dengan data dari database, lalu menampilkannya dalam bentuk DefaultTableModel. Berikut tampilan source code yang saya buat : 
+	Kelas DbUtils ini digunakan untuk mengkonversi data dari ResultSet menjadi model tabel (TableModel) yang dapat ditampilkan pada komponen tabel di Java Swing.
+ Metode resultSetToTableModel mengambil metadata kolom dari ResultSet, mendapatkan nama-nama kolom, dan mengisi baris-baris tabel dengan data dari database,
+ lalu menampilkannya dalam bentuk DefaultTableModel. Berikut tampilan source code yang saya buat : 
 
 public class UtilsDb {
-    
     public static TableModel resultSetToTableModel(ResultSet rs) {
         try {
             ResultSetMetaData metaData = rs.getMetaData();
@@ -249,7 +277,8 @@ public class UtilsDb {
 }
 
 
-Fungsi UtilsDb yaitu untuk mengonversi objek resultset (yang berisi hasil query dari database) menjadi objek TableModel (yang dapat digunakan untuk menampilkan data dalam tabel GUI). 
+Fungsi UtilsDb yaitu untuk mengonversi objek resultset (yang berisi hasil query dari database) menjadi objek TableModel
+(yang dapat digunakan untuk menampilkan data dalam tabel GUI). 
 
 
 
