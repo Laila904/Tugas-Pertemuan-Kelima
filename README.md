@@ -239,9 +239,9 @@ private void TabelPesananAncestorAdded(javax.swing.event.AncestorEvent evt) {
 
 Fungsi UtilsDb Class
 
-	Kelas DbUtils ini digunakan untuk mengkonversi data dari ResultSet menjadi model tabel (TableModel) yang dapat ditampilkan pada komponen tabel di Java Swing.
- Metode resultSetToTableModel mengambil metadata kolom dari ResultSet, mendapatkan nama-nama kolom, dan mengisi baris-baris tabel dengan data dari database,
- lalu menampilkannya dalam bentuk DefaultTableModel. Berikut tampilan source code yang saya buat : 
+Kelas DbUtils ini digunakan untuk mengkonversi data dari ResultSet menjadi model tabel (TableModel) yang dapat ditampilkan pada komponen tabel di Java Swing.
+Metode resultSetToTableModel mengambil metadata kolom dari ResultSet, mendapatkan nama-nama kolom, dan mengisi baris-baris tabel dengan data dari database,
+lalu menampilkannya dalam bentuk DefaultTableModel. Berikut tampilan source code yang saya buat : 
 
 public class UtilsDb {
     public static TableModel resultSetToTableModel(ResultSet rs) {
