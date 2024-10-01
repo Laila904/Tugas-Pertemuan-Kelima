@@ -126,10 +126,10 @@ private void jBUpdateActionPerformed(java.awt.event.ActionEvent evt) {
     }                                        
 
 
-	Fungsi metode ini yaitu untuk menangani aksi tombol “Update” (atau “ Perbarui”) saat ditekan. Yang bertujuan untuk mengambil data dari field input,memvalidasi,
- dan memperbarui data yang sesuai di database.Pertama yaitu mendeklarasikan untuk menyimpan nilai dari field id_pesanan, Menu_makanan, Harga, dan Qty. lalu,
- kode akan memeriksa field input tersebut terisi. Jika salah satu field ada yang kosong maka akan muncul pemberitahuan menggunakan JOptionPane, yang memberitahu bahwa data harus terisi. Jika, field sudah terisi makan akan lanjut ke proses berikutnya. Setelah validasi, kode akan mencoba untuk membuat driver JDBC yang diperbarui koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Kode menyiapkan SQL UPDATE untuk memperbarui data di dalam data pesanan.
- Dengan memanggil pstmt.executeUpdate(), pernyataan SQL dieksekusi untuk melakukan pembaruan. Jumlah baris yang terpengaruh oleh pernyataan SQL disimpan dalam variabel rowsAffected. Jika rowsAffected lebih besar dari 0, artinya pembaruan berhasil, dan dialog keberhasilan ditampilkan. Jika ada kesalahan konversi (misalnya, saat memparsing angka), 
+Fungsi metode ini yaitu untuk menangani aksi tombol “Update” (atau “ Perbarui”) saat ditekan. Yang bertujuan untuk mengambil data dari field input,memvalidasi,
+dan memperbarui data yang sesuai di database.Pertama yaitu mendeklarasikan untuk menyimpan nilai dari field id_pesanan, Menu_makanan, Harga, dan Qty. lalu,
+kode akan memeriksa field input tersebut terisi. Jika salah satu field ada yang kosong maka akan muncul pemberitahuan menggunakan JOptionPane, yang memberitahu bahwa data harus terisi. Jika, field sudah terisi makan akan lanjut ke proses berikutnya. Setelah validasi, kode akan mencoba untuk membuat driver JDBC yang diperbarui koneksi ke database dibuka menggunakan DriverManager.getConnection() dengan parameter yang diperlukan (koneksi, user, password). Kode menyiapkan SQL UPDATE untuk memperbarui data di dalam data pesanan.
+Dengan memanggil pstmt.executeUpdate(), pernyataan SQL dieksekusi untuk melakukan pembaruan. Jumlah baris yang terpengaruh oleh pernyataan SQL disimpan dalam variabel rowsAffected. Jika rowsAffected lebih besar dari 0, artinya pembaruan berhasil, dan dialog keberhasilan ditampilkan. Jika ada kesalahan konversi (misalnya, saat memparsing angka), 
  dialog dengan pesan kesalahan akan ditampilkan. Metode showTable() dipanggil karena bertujuan untuk memperbarui tampilan tabel data yang ditampilkan di antarmuka pengguna yang menampilkan data perubahan.
 
 Fungsi btnDeleteActionPerformed
